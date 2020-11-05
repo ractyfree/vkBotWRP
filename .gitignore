@@ -3,3 +3,5 @@
 *.log
 *.txt
 main.py
+.idea
+venv/
