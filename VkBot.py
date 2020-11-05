@@ -1,8 +1,6 @@
 import vk_api
 from vk_api.bot_longpoll import VkBotLongPoll, VkBotEventType
-from vk_api.keyboard import VkKeyboard, VkKeyboardColor
 from vk_api.utils import *
-import threading
 
 from utils.service.WorkerThread import WorkerThread
 
@@ -56,14 +54,12 @@ class VkBot:
         self.vk = vk_session.get_api()
         self.bot = VkBotLongPoll(vk_session, self.group_id)
 
-
     def send_message(self, user_id, message, keyboard=None):
         self.vk.messages.send(user_id=user_id,
                               random_id=get_random_id,
                               message=message,
                               )
         # ((keyboard=keyboard) if keyboard != None else None))
-
 
     def startPolling(self, none_stop=False):
         self.__doLogin()
